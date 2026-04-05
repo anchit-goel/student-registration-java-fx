@@ -1,0 +1,11 @@
+# macOS
+.DS_Store
+
+# Build output
+out/
+
+# Local JavaFX SDK (download locally, do not commit)
+.javafx/
+
+# Temporary files
+*.log

@@ -1,0 +1,96 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+
+<BorderPane xmlns:fx="http://javafx.com/fxml/1" fx:controller="controller.MainController">
+    <top>
+        <VBox spacing="8">
+            <padding>
+                <Insets top="10" right="10" bottom="10" left="10" />
+            </padding>
+            <HBox spacing="12">
+                <GridPane hgap="8" vgap="8">
+                    <columnConstraints>
+                        <ColumnConstraints minWidth="100" />
+                        <ColumnConstraints minWidth="200" />
+                    </columnConstraints>
+
+                    <Label text="Student Name:" GridPane.rowIndex="0" GridPane.columnIndex="0" />
+                    <TextField fx:id="studentNameField" promptText="Enter student name" GridPane.rowIndex="0" GridPane.columnIndex="1" />
+                    <Button fx:id="addStudentBtn" text="Add Student" onAction="#handleAddStudent" GridPane.rowIndex="0" GridPane.columnIndex="2" />
+
+                    <Label text="Course Name:" GridPane.rowIndex="1" GridPane.columnIndex="0" />
+                    <TextField fx:id="courseNameField" promptText="Enter course name" GridPane.rowIndex="1" GridPane.columnIndex="1" />
+                    <Button fx:id="addCourseBtn" text="Add Course" onAction="#handleAddCourse" GridPane.rowIndex="1" GridPane.columnIndex="2" />
+
+                </GridPane>
+
+                <VBox spacing="8">
+                    <padding>
+                        <Insets top="6" right="6" bottom="6" left="6" />
+                    </padding>
+                    <HBox spacing="8">
+                        <Label text="Student:" />
+                        <ComboBox fx:id="studentCombo" prefWidth="180" />
+                    </HBox>
+                    <HBox spacing="8">
+                        <Label text="Course:" />
+                        <ComboBox fx:id="courseCombo" prefWidth="180" />
+                    </HBox>
+                    <HBox spacing="8">
+                        <Button fx:id="registerBtn" text="Register" onAction="#handleRegister" />
+                        <Button fx:id="viewDataBtn" text="View Data" onAction="#handleViewData" />
+                    </HBox>
+                </VBox>
+            </HBox>
+
+            <HBox spacing="12">
+                <Button fx:id="deleteStudentBtn" text="Delete Selected Student" onAction="#handleDeleteStudent" />
+                <Button fx:id="deleteCourseBtn" text="Delete Selected Course" onAction="#handleDeleteCourse" />
+            </HBox>
+        </VBox>
+    </top>
+
+    <center>
+        <TabPane tabClosingPolicy="UNAVAILABLE">
+            <Tab text="Students">
+                <AnchorPane>
+                    <TableView fx:id="studentTable" AnchorPane.topAnchor="4" AnchorPane.leftAnchor="4" AnchorPane.rightAnchor="4" AnchorPane.bottomAnchor="4">
+                        <columns>
+                            <TableColumn fx:id="studentIdCol" text="ID" prefWidth="80" />
+                            <TableColumn fx:id="studentNameCol" text="Name" prefWidth="220" />
+                        </columns>
+                    </TableView>
+                </AnchorPane>
+            </Tab>
+
+            <Tab text="Courses">
+                <AnchorPane>
+                    <TableView fx:id="courseTable" AnchorPane.topAnchor="4" AnchorPane.leftAnchor="4" AnchorPane.rightAnchor="4" AnchorPane.bottomAnchor="4">
+                        <columns>
+                            <TableColumn fx:id="courseIdCol" text="Course ID" prefWidth="100" />
+                            <TableColumn fx:id="courseNameCol" text="Course Name" prefWidth="220" />
+                        </columns>
+                    </TableView>
+                </AnchorPane>
+            </Tab>
+
+            <Tab text="Registrations">
+                <AnchorPane>
+                    <TableView fx:id="registrationTable" AnchorPane.topAnchor="4" AnchorPane.leftAnchor="4" AnchorPane.rightAnchor="4" AnchorPane.bottomAnchor="4">
+                        <columns>
+                            <TableColumn fx:id="regIdCol" text="Reg ID" prefWidth="80" />
+                            <TableColumn fx:id="regStudentCol" text="Student" prefWidth="200" />
+                            <TableColumn fx:id="regCourseCol" text="Course" prefWidth="200" />
+                        </columns>
+                    </TableView>
+                </AnchorPane>
+            </Tab>
+        </TabPane>
+    </center>
+
+    <padding>
+        <Insets top="8" right="8" bottom="8" left="8" />
+    </padding>
+</BorderPane>
